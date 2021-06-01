@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            var arrFn = new Array();
+            for (var i = 0; i < 5; i++) { //这里存在闭包  如果是var则没有闭包 函数内的 i是没有权利访问循环变量i 则输出的是最后一个 5  如果是let输出的是 1 2 3 4 5
+                arrFn[i] = function() {
+                    return i;
+                }
+            }
+            return arrFn
+        }
+        var box = fn()
+        console.log(box) //box[fn,fn,fn,fn,fn]
+        for (var j = 0; j < box.length; j++) {
+            alert(box[j]()) //5 5次
+        }
+    </script>
+</body>
+
+</html>

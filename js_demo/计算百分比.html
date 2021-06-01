@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Percentage(num, total) {
+            //使用率计算
+            if (num == 0 || total == 0) {
+                return 0;
+            }
+            return (Math.round(num / total * 10000) / 100.00); // 小数点后两位百分比
+        }
+        console.log(Percentage(3192, 10000));
+    </script>
+</body>
+
+</html>

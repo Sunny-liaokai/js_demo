@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .a {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+        background-color: pink;
+        text-align: center;
+
+        line-height: 30px;
+        /*display: flex;*/
+        /*justify-items: center;*/
+    }
+
+    .parent {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #eee;
+        position: relative;
+
+        /*display: flex;*/
+        /*justify-content: center;*/
+        /*align-items: center;*/
+    }
+
+    .child {
+        width: 30px;
+        height: 30px;
+        background-color: cornflowerblue;
+        /*方式1*/
+        /*position: absolute;*/
+        /*top: 50%;*/
+        /*left: 50%;*/
+        /*transform: translate(-50%,-50%);*/
+
+        /*方式2*/
+        /*margin: auto;*/
+        /*position: absolute;*/
+        /*top: 0;*/
+        /*left: 0;*/
+        /*right: 0;*/
+        /*bottom: 0;*/
+        /*方式3*/
+        /*position: absolute;*/
+        /*left: 50%;*/
+        /*top: 50%;*/
+        /*margin-top: -15%;*/
+        /*margin-left: -15%;*/
+        /*方式4*/
+        margin: 50% 0 0 50%;
+        transform: translate(-50%,-50%);
+    }
+</style>
+<body>
+<div class="a">1</div>
+<div class="parent">
+    <div class="child">
+
+    </div>
+</div>
+<!--文字-->
+<!--
+text-align
+line-height
+display:flex
+align-items:center
+justify-items:center
+-->
+<!--居中元素-->
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<script>
+    class Student {
+        constructor (name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        eat () {
+            console.log(this.name + '吃饭了' + '年龄' + this.age)
+        }
+    }
+
+    class Teacher extends Student {
+        constructor (name,age) {
+            super(name)
+            this.age = age
+        }
+    }
+
+    const aa = new Student('小明', 16)
+    const teacher = new Teacher('老师', 25)
+    teacher.eat()
+    aa.eat()
+    //实例的__proto__指向Class的prototype
+    console.log(Student.prototype===Teacher.prototype.__proto__)
+</script>
+</body>
+</html>

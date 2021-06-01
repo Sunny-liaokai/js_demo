@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        let obj2 = {
+            address: "无锡",
+            birthDay: "",
+            bonus: "0",
+            bonusAmount: "0",
+            custom: {
+                id: "560585571882332161",
+                name: "李宇",
+                address: "无锡",
+                birthDay: "",
+                sex: "2"
+            },
+
+            customId: "560585571882332161",
+            customName: "李宇",
+            customPhone: "",
+            gfChineseLevel: "0",
+            gfPronunciationIntonation: "0",
+            gfServiceAttitude: "0",
+            gfServiceTerms: "0",
+            gfSpeedArticulation: "0",
+            id: "560597551607201792",
+            phoneNum: "18861876708",
+            projectId: 3501,
+            qcRemark: "",
+            qcResult: "1",
+            qcTrajectory: {
+                gfChineseLevel: "0",
+                gfPronunciationIntonation: "0",
+                gfServiceAttitude: "0",
+                gfServiceTerms: "0",
+                gfSpeedArticulation: "0",
+                id: "431419",
+                qcResult: "1",
+                recordId: "560597551607201792",
+                remark: "",
+                spBusinessKnowledge: "0",
+                spServiceFlexibility: "0",
+                spServiceInitiative: "0",
+                spSolutionProblem: "0",
+                spStructuredClear: "0",
+                spUnderstandingCustomer: "0",
+                total: "-1",
+                yxActiveMarketing: "0",
+                yxActiveRetention: "0",
+                yxProblemProcessing: "0",
+                yxServiceAttitude: "0",
+                zmBadAttitude: 0,
+                zmErrorMessages: 0,
+                zmFuzzyBusiness: 0,
+                zmSystemEvaluation: 0,
+            },
+            qcTrajectoryId: "431419",
+            score: "-1",
+            sex: "2",
+            spBusinessKnowledge: "0",
+            spServiceFlexibility: "0",
+            spServiceInitiative: "0",
+            spSolutionProblem: "0",
+            spStructuredClear: "0",
+            spUnderstandingCustomer: "0",
+            uid: "21734",
+            yxActiveMarketing: "0",
+            yxActiveRetention: "0",
+            yxProblemProcessing: "0",
+            yxServiceAttitude: "0",
+        }
+
+        function filterObj(obj, arr, _true = true) { //将对象中的true和false转换 1和0
+            if (typeof(obj) !== "object" || !Array.isArray(arr)) {
+                throw new Error("参数格式不正确")
+            }
+            Object.keys(obj).forEach(item => {
+                if (Object.prototype.toString.call(obj[item]) == '[object Object]') { //是对象
+                    filterObj(obj[item], arr, _true)
+                } else { //不是对象
+                    if (arr.includes(item)) {
+                        if (_true) { //过滤格式为true
+                            obj[item] = obj[item] == 1 ? true : false
+                        } else { //过滤格式为false
+                            obj[item] = obj[item] == false ? 0 : 1
+                        }
+                    }
+                }
+            })
+            return obj
+        }
+        console.log(filterObj(obj2, ['spBusinessKnowledge', 'yxActiveRetention', 'gfChineseLevel']))
+        let arr = []
+        if (arr.length) {
+            console.log(arr.length);
+        }
+
+        // console.log(arr.length > 1)
+    </script>
+</body>
+
+</html>

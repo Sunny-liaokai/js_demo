@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Array.prototype.uniq = function () {
+        const result = [];
+        for (let item of this) {
+            if(!result.includes(item)) {
+                result.push(item)
+            }
+        }
+        return result;
+
+    }
+    //兼容不高
+    Array.prototype.uniqs = function () {
+        return Array.from(new Set(this))
+    }
+    const array=[false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN]
+    console.log(array.uniq())
+</script>
+</body>
+</html>

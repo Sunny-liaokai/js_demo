@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css//grid.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <style>
+        .content {
+            height: 200px;
+            background-color: pink;
+        }
+        
+        .item {
+            width: 20%;
+            float: left;
+        }
+        /* .item+.item {
+           意思是前面是item类才添加这个样式 
+            margin-top: 10px;
+        } */
+        
+        .item {
+            margin-top: 10px;
+        }
+        
+        .content .item:nth-child(3) {
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+    </div>
+    <div class="container">
+        <!-- sm 三行两列 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2" style=" height:200px">
+            <img src="./img/1.png" alt="">
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2" style=" height:200px">
+            <img src="./img/2-1.jpg" alt="">
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2" style=" height:200px">
+            <img src="./img/2-2.jpg" alt="">
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2" style=" height:200px">
+            <img src="./img/2-3.jpg" alt="">
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2" style=" height:200px">
+            <img src="./img/3-1.png" alt="">
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2" style=" height:200px">
+            <img src="./img/2-1.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+<script>
+    let arr = {}
+    console.log(Object.prototype.toString.call(arr) == "[object Array]")
+</script>
+
+</html>

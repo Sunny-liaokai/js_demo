@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var y,x=1
+    console.log(y=x+++x)//3 可以拆分为 x+ ++x  1+2
+    console.log(false=='0')//true
+    console.log(false==='0')//false
+
+    var name ="strick"
+    function f1 () {
+        console.log(name)//strick
+    }
+    function f2 () {
+        var name ="fredom"
+        function inner () {
+            f1()
+        }
+        inner()
+    }
+    f2()
+</script>
+</body>
+</html>

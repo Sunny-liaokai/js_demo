@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+        // console.log(["1", "2", "11"].map(parseInt));
+        // console.log([, , , ].join(", "));
+        var arr = [{
+            id: 1,
+            value: "节点1",
+            pid: 0
+        }, {
+            id: 1,
+            value: "节点2",
+            pid: 0
+        }, {
+            id: 2,
+            value: "节点2",
+            pid: 1
+        }, {
+            id: 3,
+            value: "节点3",
+            pid: 1
+        }, {
+            id: 4,
+            value: "节点4",
+            pid: 2
+        }, {
+            id: 5,
+            value: "节点5",
+            pid: 0
+        }, {
+            id: 6,
+            value: "节点6",
+            pid: 5
+        }, {
+            id: 7,
+            value: "节点7",
+            pid: 6
+        }, {
+            id: 8,
+            value: "节点8",
+            pid: 6
+        }, ];
+
+        function invertTree(sourceArr) {
+            // 筛选pid === 0的节点，为根节点
+            const result = sourceArr.filter(item => item.pid === 0)
+
+            // 根据层级去递归，根节点遍历数组生成children
+            // 同时收集到二级节点，再递归二级节点生成children，以此类推
+            function insertChildren(levelArr) {
+                let nextLevelObj = null
+                for (let i = 0; i < levelArr.length; i++) {
+                    // 初始化children属性
+                    levelArr[i].children = levelArr[i].children || []
+                        // 闭包，访问外层的sourceArr
+                    for (let j = 0; j < sourceArr.length; j++) {
+                        if (sourceArr[j].pid === levelArr[i].id) {
+                            levelArr[i].children.push(sourceArr[j])
+                                // 收集下一层级都哪些节点，使用对象防止重复收集
+                            nextLevelObj = nextLevelObj || {}
+                            nextLevelObj[sourceArr[j].id] = sourceArr[j]
+                        }
+                    }
+                }
+                // 对象转换为数组，递归
+                if (nextLevelObj) {
+                    const nextLevelArr = []
+                    for (let id in nextLevelObj) {
+                        nextLevelArr.push(nextLevelObj[id])
+                    }
+                    insertChildren(nextLevelArr)
+                }
+            }
+
+            // 传入根节点，开始递归
+            insertChildren(result)
+
+            return result
+        }
+        console.log(invertTree(arr));
+    </script>
+</body>
+
+</html>

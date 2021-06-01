@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function filterStorage(value) {
+            if (value == 0) return "0 B"
+            var k = 1024;
+            var sizes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
+            let i = Math.floor(Math.log(value) / Math.log(k));
+            let size = JSON.parse((value / Math.pow(k, i).toPrecision(3)).toFixed(2))
+            return size + sizes[i]
+        }
+        console.log(filterStorage(3615031296 + 3284992 + 290480128 + 382754816 + 4194304));
+    </script>
+</body>
+
+</html>

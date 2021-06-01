@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .clearfix:before {
+            display: block;
+            content: "";
+            height: 0;
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //url参数解析为js对象
+    !(function () {
+        // function ParsingUrl () {
+        var url = location.search.slice(1).split('&')
+        console.log(url)
+        let result={}
+        url.forEach(item => {
+            let arr=item.split("=")
+           result[arr[0]]=arr[1]
+           // result[arr[0]]=arr[1]
+        })
+        console.log(result)
+        // }
+    })()
+</script>
+</body>
+</html>

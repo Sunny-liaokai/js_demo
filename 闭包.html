@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <script>
+        /**
+         * 闭包是指一个函数内有权访问另一个函数内的变量
+         * 
+         * **/
+        for (let i = 0; i <= 5; i++) {;
+            (function(j) {
+                setTimeout((function timer() {
+                    console.log(j);
+                }), j * 1000);
+            })(i)
+        }
+        // for (let i = 0; i <= 5; i++) {
+        //     setTimeout(() => {
+        //         console.log(i);
+        //     }, i * 1000);
+        // }
+
+        // var dom = document.getElementsByTagName('div')
+        // console.log(dom);
+        // for (let index = 0; index < dom.length; index++) {
+        //     dom[index].onclick = function() {
+        //         console.log(dom[index].innerText);
+        //     }
+        // }
+        var dom = document.getElementsByTagName('div')
+        for (var index = 0; index < dom.length; index++) {
+            (function(j) {
+                dom[j].onclick = function() {
+                    console.log(dom[j].innerText);
+                }
+            })(index)
+        }
+
+    </script>
+</body>
+
+</html>

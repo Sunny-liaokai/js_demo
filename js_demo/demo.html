@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 600px;
+            height: 200px;
+            border: 1px solid #eee;
+        }
+        
+        .left {
+            float: left;
+            width: 200px;
+            background-color: aqua;
+        }
+        
+        .right {
+            margin-left: 200px;
+            background-color: pink;
+        }
+        
+        .container1 {
+            width: 400px;
+            height: 600px;
+            border: 1px solid #eee;
+            position: relative;
+        }
+        
+        .top {
+            width: 100%;
+            height: 40px;
+            background-color: aquamarine;
+        }
+        
+        .bottom {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            margin-top: 40px;
+            width: 100%;
+            background-color: burlywood;
+        }
+        
+        .content {
+            width: 200px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        
+        .top1 {
+            width: 100%;
+            height: 100px;
+            background: red;
+        }
+        
+        .bottom1 {
+            width: 100%;
+            background: blue;
+        }
+        
+        #father {
+            width: 500px;
+            height: 300px;
+            background-color: skyblue;
+            position: relative;
+        }
+        
+        #son {
+            height: 44px;
+            background-color: green;
+            position: absolute;
+            top: 50%;
+            margin-top: -22px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="left">左边</div>
+        <div class="right">右边</div>
+    </div>
+
+
+    <div class="container1">
+        <div class="top">上边</div>
+        <div class="bottom">下边</div>
+    </div>
+
+    <div class="content">
+        <div class="top1">top</div>
+        <div class="bottom1">bottom</div>
+    </div>
+
+    <div id="father">
+        <div id="son">我是块级元素</div>
+    </div>
+</body>
+
+</html>

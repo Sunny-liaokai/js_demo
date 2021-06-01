@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setInterval(function() {
+            var d1 = new Date();
+            var d2 = new Date(2020, 11, 2);
+            console.log(d2);
+            // console.log(d2 - d1)
+            var seconds = (d1 - d2) / 1000;
+            // console.log(seconds)
+            var day = parseInt(seconds / (24 * 3600));
+            var hour = parseInt((seconds - day * 24 * 3600) / 3600);
+            var minutes = parseInt((seconds - day * 24 * 3600 - hour * 3600) / 60)
+            var second = parseInt(seconds % 60)
+            console.log(`该网站已运行${day}天${hour}小时${minutes}分${second}秒`);
+        }, 1000)
+    </script>
+</body>
+
+</html>

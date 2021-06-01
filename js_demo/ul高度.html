@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--这题考察的是父亲没有高度 里面的孩子又浮动了 此时给父盒子加了hidden 相当于清除了浮动 所以高度为100-->
+<ul style="overflow: hidden">
+    <li style="float: left"></li>
+</ul>
+</body>
+</html>

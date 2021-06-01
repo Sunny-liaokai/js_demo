@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    String.prototype.trim = function () {
+        // + 一个或多个 \s匹配空格 ^以什么开头  $以什么结束
+        return this.replace('/^\s+/', '').replace(/\s+$/, '')
+    }
+    //判断字符串以字母开头 后面字母数字下划线,长度6-30
+    String.prototype.isRxp = function () {
+        var srt = /^[a-zA-Z]\w,{6-30}$/
+        return this.test(srt)
+    }
+    //\w以下划线为主  {3,30}长度
+    let str = 'A_21322'
+    var srt = /^[a-zA-Z]\w{3,30}$/
+    console.log(srt.test(str))
+</script>
+</body>
+</html>
