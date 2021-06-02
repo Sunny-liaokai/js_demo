@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = {
+        a: 1,
+        b: 2,
+        c: {
+            name: '张三',
+            age: 12,
+            d: {
+                name: '李四',
+                age: 13
+            }
+        }
+    }
+
+    function deepClone (obj = {}) {
+        if (typeof obj !== "object" || obj === null) {
+            return obj
+        }
+        var result
+        if (obj instanceof Array){
+            result=[]
+        }else {
+            result={}
+        }
+        for (let key in obj){
+            result[key]=deepClone(obj[key])
+        }
+        return result
+    }
+    let result=deepClone(obj)
+    result.a=2
+    result.c.age=13
+    console.log(result)
+    console.log(obj)
+</script>
+</body>
+</html>

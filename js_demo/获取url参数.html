@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     *  获取 url 中的参数
+     1. 指定参数名称，返回该参数的值 或者 空字符串
+     2. 不指定参数名称，返回全部的参数对象 或者 {}
+     3. 如果存在多个同名参数，则返回数组
+     * @param sUrl
+     * @param sKey
+     * @returns {Object|string|any[]|any|{}}
+     */
+    function getUrlParam (sUrl, sKey) {
+        //split 以什么为分隔符 返回数组
+        var param = sUrl.split('#')[0].split('?')[1]
+        var strs = param.split('&');//[key=1,key=2,key=3,test=4]
+        if (sKey) {//指定参数名称
+            var arrs = new Array()//如果存在多个同名参数 返回数组
+            for (var i = 0; i < strs.length; i++) {
+                var tep = strs[i].split('=')
+                if (tep[0] == sKey) {
+                    arrs.push(tep[1])
+                }
+            }
+            switch (arrs.length) {
+                case 1:
+                    return arrs[0];
+                    break;
+                case 0:
+                    return "";
+                    break;
+                default:
+                    return arrs;
+                    break
+            }
+        } else {
+            if (param == undefined || param == "") {
+                return {}
+            } else {
+                var arrObj = new Object();
+                for (var i = 0; i < strs.length; i++) {
+                    var tem = strs[i].split('=');
+                    if (!(tem[0] in arrObj)) {//不存在同名参数
+                        arrObj[tem[0]] = []
+                    }//如果存在 true 直接push到数组内
+                    arrObj[tem[0]].push(tem[1]);
+                }
+                return arrObj;
+            }
+        }
+    }
+
+    console.log(getUrlParam('http://www.nowcoder.com?key=1&key=2&key=3&test=4#hehe', 'key'))
+</script>
+</body>
+</html>

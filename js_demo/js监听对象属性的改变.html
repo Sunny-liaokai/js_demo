@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js监听对象属性的变化</title>
+</head>
+<body>
+<script>
+
+    //方法一 使用defineProperty 劫持数据变化监听
+    let data1 = {
+        name:'小明',
+        age:18
+    }
+
+    Object.defineProperty(data1,'age',{
+        set:function(newAge){
+            age = newAge
+            console.log(this.name+'现在'+newAge+'岁')
+        },
+        get:function(){
+            // 直接返回age
+            return age;
+
+        }
+    })
+    //赋值
+    data1.age = 18;
+    data1.age = 19;
+    console.log(data1.age)
+    //方法二 使用 proxy
+    var user = new Proxy({}, {
+        get: function (target, propKey, receiver) {
+            console.log(`getting ${propKey}!`);
+            return Reflect.get(target, propKey, receiver);
+        },
+        set: function (target, propKey, value, receiver) {
+            console.log(`setting ${propKey}!`);
+            return Reflect.set(target, propKey, value, receiver);
+        }
+    });
+    user.name="aaa";
+    console.log(user.name);
+
+</script>
+</body>
+</html>

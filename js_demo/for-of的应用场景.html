@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function asyncF (num) {
+        return new Promise((resolve, reject) => {
+            setInterval(() => {
+                resolve(num)
+            }, 1000)
+        })
+    }
+
+    let arr = [1, 2, 3]
+    let arr1 = {
+        name: 1,
+        age: 15,
+        p: 14
+    }
+    // for of 数组方法 具有异步效果 能够实现程序睡眠
+    !(async function () {
+        for (let i of Object.keys(arr1) ) {
+            const reslut = await asyncF(i)
+            console.log(reslut);
+        }
+    })()
+
+</script>
+</body>
+</html>

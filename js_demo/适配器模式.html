@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Plug {
+        getName () {
+            return '港版插头'
+        }
+    }
+
+    class Target {
+        constructor () {
+            this.plug = new Plug()
+        }
+
+        getName () {
+            console.log(this)
+            return this.plug.getName() + ' 适配器转二脚插头'
+        }
+    }
+    //①__proto__和constructor属性是对象所独有的；比如实例对象拥有这两个属性 也就是说constructor拥有prototype 而prototype是指向原型对象
+    //console.log(target.__proto__.constructor.prototype===Target.prototype)
+    //② prototype属性是函数所独有的。但是由于JS中函数也是一种对象，所以函数也拥有__proto__和constructor属性
+    //prototype属性，别忘了一点，就是我们前面提到要牢记的两点中的第二点，它是函数所独有的，它是从一个函数指向一个对象。它的含义是函数的"原型对象"，
+    //constructor属性也是对象才拥有的，它是从一个对象指向一个函数，含义就是指向该对象的构造函数
+    let target = new Target()
+    console.log(Target.prototype)
+    console.log(Target.prototype.constructor)
+    console.log(Target===Target.prototype.constructor)
+    console.log(target.__proto__)
+    console.log(target.constructor)  //原型对象有一个constructor属性，指向该原型对象对应的构造函数
+    console.log(target.__proto__===target.constructor)
+    console.log(Target.prototype.constructor===target.constructor)
+    // console.log(target.getName()) // 港版插头 适配器转二脚插头
+</script>
+</body>
+</html>
